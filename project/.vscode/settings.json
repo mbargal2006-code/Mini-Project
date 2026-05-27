@@ -1,0 +1,9 @@
+{
+  "python.defaultInterpreterPath": "./project/backend/venv311/Scripts/python.exe",
+  "python.terminal.activateEnvironment": true,
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.analysis.autoSearchPaths": true,
+  "python.analysis.extraPaths": ["./project/backend"],
+  "python.analysis.typeCheckingMode": "basic"
+}

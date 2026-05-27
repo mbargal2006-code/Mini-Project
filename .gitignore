@@ -1,0 +1,11 @@
+# Ignore nested git metadata
+project/.git/
+project/project/.git/
+
+# Ignore dependency folders
+**/node_modules/
+**/venv/
+
+# Ignore build and archive artifacts that shouldn't be pushed
+project.zip
+project (2).zip

@@ -1,0 +1,55 @@
+# Frontend Upgrade Plan: React + Tailwind CSS Migration
+
+This plan outlines the "prefect" upgrade of your current Express/EJS frontend to a modern React + Vite + Tailwind CSS stack, starting with the requested premium ThemeToggle component.
+
+## User Review Required
+
+> [!IMPORTANT]
+> **Migration Strategy**: Your current frontend uses **Express + EJS**. This plan assumes a migration to a **React SPA (Single Page Application)**. This will decouple your frontend from the backend, requiring API calls to your FastAPI backend instead of direct EJS rendering. 
+
+> [!WARNING]
+> **Directory Structure**: I propose creating a new `frontend-react` directory to avoid disrupting your current working site. Once complete, we can swap them or keep them separate.
+
+## Proposed Changes
+
+### Setup & Configuration
+
+- Initialize a new React + Vite project.
+- Install and configure Tailwind CSS.
+- Update `tailwind.config.js` to enable class-based dark mode.
+
+#### [NEW] [tailwind.config.js](file:///c:/Users/ADMIN/OneDrive/Desktop/MINI/project/project/frontend-react/tailwind.config.js)
+Configuration to support the "dark" class and the premium glassmorphism design.
+
+### Core Components
+
+#### [NEW] [ThemeToggle.jsx](file:///c:/Users/ADMIN/OneDrive/Desktop/MINI/project/project/frontend-react/src/components/ThemeToggle.jsx)
+The premium toggle component featuring:
+- Glassmorphism & Neon Glow.
+- System theme detection & LocalStorage persistence.
+- Smooth transitions (300-500ms).
+- Keyboard accessibility (ARIA labels, focus states).
+
+#### [NEW] [Navbar.jsx](file:///c:/Users/ADMIN/OneDrive/Desktop/MINI/project/project/frontend-react/src/components/Navbar.jsx)
+A modern Navbar demonstrating the toggle integration.
+
+#### [MODIFY] [index.css](file:///c:/Users/ADMIN/OneDrive/Desktop/MINI/project/project/frontend-react/src/index.css)
+Global styles for smooth background transitions and glassmorphism utility classes.
+
+## Open Questions
+
+1. **Backend Integration**: Should I configure a proxy in Vite to redirect `/api` calls to your FastAPI backend (`http://localhost:5000`)?
+2. **Icons**: Use SVG paths directly (as requested "No external UI libraries") or would you prefer an icon library like `lucide-react`? (I will default to SVG for zero dependencies).
+3. **Existing Logic**: Do you want me to port any specific logic from your current EJS views (like the Thought Tracker charts) during this phase, or keep it focused on the UI/Theme setup?
+
+## Verification Plan
+
+### Automated Tests
+- Check `localStorage` persistence after page reload.
+- Verify `dark` class presence on `<html>` tag.
+- Test keyboard navigation (Tab and Enter/Space to toggle).
+
+### Manual Verification
+- Visual inspection of the "neon glow" in dark mode.
+- Verification of the "sliding knob" animation smoothness.
+- Check responsiveness on mobile viewport.
